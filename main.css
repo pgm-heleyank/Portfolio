@@ -41,7 +41,7 @@
 @media (min-width:78rem) {
   :root {
     /* font-sizes */
-    --regular: 1.875rem;
+    --regular: 1.5rem;
     --label: 1.625rem;
     --subtitle: 2.5rem;
     --title: 5rem;
