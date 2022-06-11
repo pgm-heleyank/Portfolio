@@ -5890,6 +5890,62 @@
   var observe = document.querySelector(".wrapper");
   gsapWithCSS.to(observe, {
     scrollTrigger: {
+      trigger: ".portfolio",
+      start: "80% 90%",
+      end: "80% 0%",
+      scrub: 1,
+      onEnter: () => {
+        gsapWithCSS.to(".header__container", {
+          backgroundColor: "rgba(0,0,0,0.2)"
+        });
+      },
+      onLeave: () => {
+        gsapWithCSS.to(".header__container", {
+          backgroundColor: "unset"
+        });
+      },
+      onEnterBack: () => {
+        gsapWithCSS.to(".header__container", {
+          backgroundColor: "rgba(0,0,0,0.2)"
+        });
+      },
+      onLeaveBack: () => {
+        gsapWithCSS.to(".header__container", {
+          backgroundColor: "unset"
+        });
+      }
+    }
+  });
+  gsapWithCSS.to(observe, {
+    scrollTrigger: {
+      trigger: ".footer",
+      start: "520% 30%",
+      end: "520% 0%",
+      scrub: 1,
+      onEnter: () => {
+        gsapWithCSS.to(".header__container", {
+          backgroundColor: "rgba(0,0,0,0.2)"
+        });
+      },
+      onLeave: () => {
+        gsapWithCSS.to(".header__container", {
+          backgroundColor: "unset"
+        });
+      },
+      onEnterBack: () => {
+        gsapWithCSS.to(".header__container", {
+          backgroundColor: "rgba(0,0,0,0.2)"
+        });
+      },
+      onLeaveBack: () => {
+        gsapWithCSS.to(".header__container", {
+          backgroundColor: "unset"
+        });
+      }
+    }
+  });
+  gsapWithCSS.to(observe, {
+    scrollTrigger: {
       trigger: ".me",
       start: "0% 80%",
       end: "0% -20%",
@@ -5986,6 +6042,7 @@
         });
         gsapWithCSS.to(".main-nav__container", {
           color: "#333333",
+          backgroundColor: "#FCFCFC",
           borderRight: "5px solid #333333"
         });
       },
@@ -5998,6 +6055,7 @@
         });
         gsapWithCSS.to(".main-nav__container", {
           color: "#FCFCFC",
+          backgroundColor: "#333333",
           borderRight: "5px solid #FCFCFC"
         });
       },
@@ -6016,15 +6074,15 @@
       scrub: 1
     }
   });
-  tl.addLabel("disappearing Words start").to(".word-1", { scale: 0.8, opacity: 0 }).to(".word-2", { scale: 0.8, opacity: 0 }).to(".word-3", { scale: 0.8, opacity: 0 }).to(".word-4", { scale: 0.8, opacity: 0 }).to(".word-5", { scale: 0.8, opacity: 0 }).to(".word-6", { scale: 0.8, opacity: 0 }).to(".word-7", { scale: 0.8, opacity: 0 }).to(".word-8", { scale: 0.8, opacity: 0 }).to(".word-9", { scale: 0.8, opacity: 0 }).to(".word-10", { scale: 0.8, opacity: 0 }).to(".word-11", { scale: 0.8, opacity: 0 }).to(".word-12", { scale: 0.8, opacity: 0 }).to(".word-13", { scale: 0.8, opacity: 0 }).to(".word-14", { scale: 0.8, opacity: 0 }).to(".word-15", { scale: 2 });
+  tl.addLabel("disappearing Words start").to(".word-1", { scale: 0.8, opacity: 0 }).to(".word-2", { scale: 0.8, opacity: 0 }).to(".word-3", { scale: 0.8, opacity: 0 }).to(".word-4", { scale: 0.8, opacity: 0 }).to(".word-5", { scale: 0.8, opacity: 0 }).to(".word-6", { scale: 0.8, opacity: 0 }).to(".word-7", { scale: 0.8, opacity: 0 }).to(".word-8", { scale: 0.8, opacity: 0 }).to(".word-9", { scale: 0.8, opacity: 0 }).to(".word-10", { scale: 0.8, opacity: 0 }).to(".word-11", { scale: 0.8, opacity: 0 }).to(".word-12", { scale: 0.8, opacity: 0 }).to(".word-13", { scale: 0.8, opacity: 0 }).to(".word-14", { scale: 0.8, opacity: 0 }).to(".word-15", { scale: 2, y: 300 });
   var count = 0;
   var targets = document.querySelectorAll(".portfolio__project");
   gsapWithCSS.set(targets, { xPercent: 100 });
   gsapWithCSS.set(targets[0], { xPercent: 0 });
   var slideOneNext = () => {
-    gsapWithCSS.fromTo(targets[count], { xPercent: 0, zIndex: 1 }, { delay: 0.2, duration: 1.2, xPercent: 0, zIndex: 0 });
+    gsapWithCSS.fromTo(targets[count], { xPercent: 0, zIndex: 11 }, { delay: 0.2, duration: 1.2, xPercent: 0, zIndex: 0 });
     count = count < targets.length - 1 ? ++count : 0;
-    gsapWithCSS.fromTo(targets[count], { xPercent: 100, zIndex: 2 }, { duration: 1.2, xPercent: 0 });
+    gsapWithCSS.fromTo(targets[count], { xPercent: 100, zIndex: 20 }, { duration: 1.2, xPercent: 0 });
   };
   var nextButton = document.querySelector(".portfolio__btn--next");
   nextButton.addEventListener("click", () => {
@@ -6033,22 +6091,26 @@
   function slideOnePrev() {
     gsapWithCSS.fromTo(targets[count], { xPercent: 0, zIndex: 1 }, { xPercent: 0, zIndex: 0 });
     count = count > 0 ? --count : targets.length - 1;
-    gsapWithCSS.fromTo(targets[count], { xPercent: -100, zIndex: 1 }, { duration: 1.2, xPercent: 0, zIndex: 1 });
+    gsapWithCSS.fromTo(targets[count], { xPercent: -100, zIndex: 10 }, { duration: 1.2, xPercent: 0, zIndex: 10 });
   }
   var prevButton = document.querySelector(".portfolio__btn--prev");
   prevButton.addEventListener("click", function() {
     slideOnePrev();
   });
   var horizontalScrollWrapper = gsapWithCSS.utils.toArray(".horizontal-scroll");
-  gsapWithCSS.to([horizontalScrollWrapper], {
-    x: (_, el) => -(el.scrollWidth - window.innerWidth + 40),
-    scrollTrigger: {
-      trigger: ".hobbies",
-      start: "top top",
-      end: "500%",
-      pin: true,
-      scrub: true,
-      invalidateOnRefresh: true
+  ScrollTrigger2.matchMedia({
+    "(min-width: 70rem)": function() {
+      gsapWithCSS.to([horizontalScrollWrapper], {
+        x: (_, el) => -(el.scrollWidth - window.innerWidth + 40),
+        scrollTrigger: {
+          trigger: ".hobbies",
+          start: "top top",
+          end: "500%",
+          pin: true,
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      });
     }
   });
 })();

@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "scripts": "esbuild gsap.js --bundle --outfile=build/main.js --watch"
+        "start": "esbuild gsap.js --bundle --outfile=build/main.js --watch"
     },
     "dependencies": {
         "esbuild": "^0.14.42",
